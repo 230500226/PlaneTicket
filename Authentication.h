@@ -1,7 +1,8 @@
 #ifndef AUTHENTICATION_H
 #define AUTHENTICATION_H
 
-int isUnique(char *name);
-int isValidPassword(char *password);
+void handleInvalidInput(int options);
+// int isUnique(char *name);
+// int isValidPassword(char *password);
 
 #endif

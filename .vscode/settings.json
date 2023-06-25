@@ -56,9 +56,8 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "code-runner.executorMap": {
     "c": "cd $dir ; if ($?) { gcc *.c -o $fileNameWithoutExt -lpdcurses -DNCURSES_STATIC} ; if ($?) { .\\$fileNameWithoutExt }"
-},
-"files.associations": {
-  "typeinfo": "c"
-}
-
+  },
+  "files.associations": {
+    "typeinfo": "c"
+  }
 }
