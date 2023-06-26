@@ -6,7 +6,8 @@
 // #include "Passenger.h"
 
 void handleInvalidInput(int options) {
-    printf("Invalid choice please enter a number from 1 to %d. \n", options);
+        system("cls");
+                printf("Invalid choice please enter a number from 1 to %d. \n", options);
                 //clear the input buffer so that all characters the user entered last are removed
                 //this prevents the program from reading old input data
         int c;

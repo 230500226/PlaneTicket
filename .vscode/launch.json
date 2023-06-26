@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/snowy/Documents/Github/PlaneTicket",
-      "program": "c:/Users/snowy/Documents/Github/PlaneTicket/build/Debug/outDebug",
+      "cwd": "c:/Users/snowy/Documents/GitHub/PlaneTicket",
+      "program": "c:/Users/snowy/Documents/GitHub/PlaneTicket/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
