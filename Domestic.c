@@ -7,11 +7,12 @@
 
 char *domesticCountries[6] = {"Cape Town", "Durban", "Johannesburg", "Port Elizabeth", "East London", "George"};
 
-int Domestic(){
+int domestic(){
 
     int choice;
     while (1) {
-        printf("Origin \nWhere from?");
+        system("cls");
+        printf("Origin \nWhere from?\n");
         int lengthCountries = sizeof(domesticCountries)/sizeof(domesticCountries[0]);
             for (int i = 0; i < lengthCountries; i++){
                 printf("%d. %s\n", i, domesticCountries[i]);
@@ -28,6 +29,6 @@ int Domestic(){
                 break;
             } else {
                 printf("Invalid choice. Please try again.\n");
-    };
-
+        };
+    }
 return 0;}

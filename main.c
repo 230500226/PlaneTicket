@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "Authentication.h"
+#include "FlightType.h"
 // #include "Passenger.h"
 
 // #define MAX_PASSENGERS 100
@@ -53,7 +54,8 @@ int main() {
             };
             switch (choice) {
                 case 1:
-                    printf("Domestic\n");
+                    printf("Domestic()\n");
+                    domestic();
                     break;
                 case 2:
                     printf("International\n");
