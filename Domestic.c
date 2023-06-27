@@ -4,6 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "Authentication.h"
+#include "Passenger.h"
 
 #define MAX_PASSENGERS 10
 
@@ -23,38 +24,10 @@ domesticFlight domesticCountries[] = {
 };
 
 //Passenger information
-typedef struct {
-    char name[50];
-    int id;
-    char phone[20];
-    char origin[50];
-    char destination[50];
-} passengerData;
-
-passengerData passenger;
+passengerData *passenger;
 
             int numPassengers = 0;
-            void createPassenger() {
-            printf("Enter your name: ");
-            scanf("%s", passenger.name);
-            printf("Enter your ID number: ");
-            scanf("%d", &passenger.id);
-            printf("Enter your phone number: ");
-            scanf("%s", passenger.phone);
-            numPassengers++;
-            }
 
-            void displayPassengers(passengerData passengers[], int numPassengers) {
-            for (int i = 0; i < numPassengers; i++) {
-                printf("Passenger %d:\n", i + 1);
-                printf("Name: %s\n", passengers[i].name);
-                printf("ID: %d\n", passengers[i].id);
-                printf("Phone number: %s\n", passengers[i].phone);
-                printf("Origin: %s\n", passengers[i].origin);
-                printf("Destination: %s\n", passengers[i].destination);
-                printf("\n");
-            }
-            }
 int domestic(){
 system("cls");
     int choice;
@@ -73,9 +46,9 @@ system("cls");
                 };
 
                 if (choice >= 1 && choice <= lengthCountries) {
-                    strcpy(passenger.origin, domesticCountries[choice-1].city);
+                    strcpy(passenger->origin, domesticCountries[choice-1].city);
                     system("cls");
-                    printf("==== You chose origin: %s ====\n", passenger.origin);
+                    printf("==== You chose origin: %s ====\n", passenger->origin);
                     break;
                 } else {
                     system("cls");
@@ -98,9 +71,9 @@ system("cls");
 
                 if (choice >= 1 && choice <= lengthCountries) {
                     char destination[50];
-                    strcpy(passenger.destination, domesticCountries[choice-1].city);
+                    strcpy(passenger->destination, domesticCountries[choice-1].city);
                     system("cls");
-                    printf("==== You chose destination : %s ====\n", passenger.destination);
+                    printf("==== You chose destination : %s ====\n", passenger->destination);
                     break;
                 } else {
                     system("cls");
@@ -109,14 +82,14 @@ system("cls");
         }
             //checkcs if there are seats available
         for (int i = 0; i < sizeof(domesticCountries) / sizeof(domesticCountries[0]); i++) {
-            if (strcmp(passenger.destination, domesticCountries[i].city) == 0 && domesticCountries[i].passengers >= MAX_PASSENGERS) {
+            if (strcmp(passenger->destination, domesticCountries[i].city) == 0 && domesticCountries[i].passengers >= MAX_PASSENGERS) {
                 system("cls");
-                printf("Sorry, the flight to %s is fully booked please choose another destination\n", passenger.destination);
+                printf("Sorry, the flight to %s is fully booked please choose another destination\n", passenger->destination);
                 goto start;
             }
         }
             system("cls");
-            printf("There are seats available for the flight to %s\n", passenger.destination);
+            printf("There are seats available for the flight to %s\n", passenger->destination);
             printf("please enter your details to contine\n");
 
             //Collects passenger information
@@ -125,9 +98,10 @@ system("cls");
 
             //Prints reservation ticket information
 
-                displayPassengers(passenger, numPassengers);
+                displayPassenger(&passenger);
 
-            printf("Please press enter to confirm...\n");
+
+            printf("Please press any key and enter to confirm...\n");
             int c;
             scanf(" %c", &c);
         

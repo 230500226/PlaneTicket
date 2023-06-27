@@ -1,1 +1,1 @@
-createP
+displayPassenger(&passenger);
