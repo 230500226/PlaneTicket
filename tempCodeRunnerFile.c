@@ -1,1 +1,0 @@
-displayPassenger(&passenger);

@@ -2,22 +2,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void displayPassenger(passengerData *passenger) {
+void displayPassenger(passengerData *passenger, int numPassengers) {
     system("cls");
-    printf("----You have successfully booked your filght----");
-    printf("Here is your flight ticket:");
-    printf("--------------------------------------------------");
+    printf("----You have successfully booked your filght----\n");
+    printf("Here is your flight ticket:\n");
+    printf("--------------------------------------------------\n");
     printf("Name: %s\n", passenger->name);
     printf("ID: %d\n", passenger->id);
     printf("Phone number: %s\n", passenger->phone);
     printf("Origin: %s\n", passenger->origin);
     printf("Destination: %s\n", passenger->destination);
-    printf("Thank you for choosing SAA have a safe flight");
-    printf("--------------------------------------------------");
+    printf("Thank you for choosing SAA have a safe flight\n");
+    printf("--------------------------------------------------\n");
 }
 
-passengerData createPassenger() {
-    passengerData *passenger;
+void createPassenger(passengerData *passenger, int numPassengers) {
 
     printf("Enter passenger name: ");
     scanf("%s", passenger->name);
@@ -28,11 +27,4 @@ passengerData createPassenger() {
     printf("Enter passenger phone number: ");
     scanf("%s", passenger->phone);
 
-    printf("Enter passenger origin: ");
-    scanf("%s", passenger->origin);
-
-    printf("Enter passenger destination: ");
-    scanf("%s", passenger->destination);
-
-    return *passenger;
 }

@@ -24,9 +24,8 @@ domesticFlight domesticCountries[] = {
 };
 
 //Passenger information
-passengerData *passenger;
-
-            int numPassengers = 0;
+passengerData passengers[10];
+   int numPassengers = 0;
 
 int domestic(){
 system("cls");
@@ -46,9 +45,9 @@ system("cls");
                 };
 
                 if (choice >= 1 && choice <= lengthCountries) {
-                    strcpy(passenger->origin, domesticCountries[choice-1].city);
+                    strcpy(passengers[numPassengers].origin, domesticCountries[choice-1].city);
                     system("cls");
-                    printf("==== You chose origin: %s ====\n", passenger->origin);
+                    printf("==== You chose origin: %s ====\n", passengers[numPassengers].origin);
                     break;
                 } else {
                     system("cls");
@@ -71,9 +70,9 @@ system("cls");
 
                 if (choice >= 1 && choice <= lengthCountries) {
                     char destination[50];
-                    strcpy(passenger->destination, domesticCountries[choice-1].city);
+                    strcpy(passengers[numPassengers].destination, domesticCountries[choice-1].city);
                     system("cls");
-                    printf("==== You chose destination : %s ====\n", passenger->destination);
+                    printf("==== You chose destination : %s ====\n", passengers[numPassengers].destination);
                     break;
                 } else {
                     system("cls");
@@ -82,23 +81,23 @@ system("cls");
         }
             //checkcs if there are seats available
         for (int i = 0; i < sizeof(domesticCountries) / sizeof(domesticCountries[0]); i++) {
-            if (strcmp(passenger->destination, domesticCountries[i].city) == 0 && domesticCountries[i].passengers >= MAX_PASSENGERS) {
+            if (strcmp(passengers[numPassengers].destination, domesticCountries[i].city) == 0 && domesticCountries[i].passengers >= MAX_PASSENGERS) {
                 system("cls");
-                printf("Sorry, the flight to %s is fully booked please choose another destination\n", passenger->destination);
+                printf("Sorry, the flight to %s is fully booked please choose another destination\n", passengers[numPassengers].destination);
                 goto start;
             }
         }
             system("cls");
-            printf("There are seats available for the flight to %s\n", passenger->destination);
+            printf("There are seats available for the flight to %s\n", passengers[numPassengers].destination);
             printf("please enter your details to contine\n");
 
             //Collects passenger information
 
-                createPassenger();
+                createPassenger(&passengers[numPassengers], numPassengers);
 
             //Prints reservation ticket information
 
-                displayPassenger(&passenger);
+                displayPassenger(&passengers[numPassengers], numPassengers);
 
 
             printf("Please press any key and enter to confirm...\n");
