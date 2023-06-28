@@ -54,6 +54,7 @@ system("cls");
                 for (int i = 0; i < lengthCountries; i++){
                     printf("%d. %s\n", j++, internationalCountries[i].city);
                 }
+                printf("%d. Exit\n", j);
                     //makes sure that the input is valid so that it doesn't loop 
                 if (scanf("%d", &choice) != 1) { 
                     handleInvalidInput(lengthCountries);
@@ -65,6 +66,10 @@ system("cls");
                     system("cls");
                     printf("==== You chose origin: %s ====\n", ipassengers[inumPassengers].origin);
                     break;
+                } else if (choice == j) {
+
+                    goto exit;
+
                 } else {
                     system("cls");
                     printf("Invalid choice number, please try again...\n");
@@ -79,6 +84,7 @@ system("cls");
                 for (int i = 0; i < lengthCountries; i++){
                     printf("%d. %s\n", j++, internationalCountries[i].city);
                 }
+                printf("%d. Exit\n", j);
                 
                 if (scanf("%d", &choice) != 1) { 
                     handleInvalidInput(lengthCountries);
@@ -97,6 +103,10 @@ system("cls");
                         printf("Your origin and destination location can't be the same please try again.\n");
                         goto origin;
                     }                    
+                } else if (choice == j) {
+
+                    goto exit;
+
                 } else {
                     system("cls");
                     printf("Invalid choice number, please try again...\n");
@@ -137,5 +147,6 @@ system("cls");
             printf("Ready for next passenger...\n");
             getchar();
             getchar();
+            exit:
         
 return 0;}
