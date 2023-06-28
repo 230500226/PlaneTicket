@@ -2,7 +2,6 @@
 #define FLIGHTTYPE_H
 
 int domestic();
-// int isUnique(char *name);
-// int isValidPassword(char *password);
+int international();
 
 #endif

@@ -16,7 +16,7 @@ typedef struct {
     int passengers;
 }flightData;
 
-//Spent a lot of time debugging the way the passenger data was modified between the c files eventually got it working tho😎
+//Spent a lot of time debugging the way the passenger data was modified between the c files eventually got it working tho😎 more iin readme pdf
 
 void createPassenger(passengerData *passenger, int numPassengers);
 void displayAllPassengers(passengerData *passenger, int numPassengers);

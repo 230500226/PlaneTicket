@@ -12,25 +12,27 @@
 
 //Flight information
 
-flightData domesticCities[] = {
+flightData internationalCountries[] = {
     //simulated extra passengers for testing purposes
-    {"Cape Town", 1},
-    {"Durban", 2},
-    {"Johannesburg", 3},
-    {"Port Elizabeth", 0},
-    {"East London", 1},
-    {"George", 2}
+    {"France: Paris (CDG)", 1},
+    {"Brazil: Brasília (BSB)", 2},
+    {"Japan: Tokyo (HND)", 3},
+    {"South Africa: Johannesburg (JNB)", 1},
+    {"ECanada: Ottawa (YOW)", 0},
+    {"Australia: Canberra (CBR)", 1},
+    {"Italy: Rome (FCO)", 2},
+    {"India: New Delhi (DEL)", 2}
 };
 
 //Passenger information
-passengerData passengers[MAX_PASSENGERS];
-   int numPassengers = 0;
+passengerData ipassengers[MAX_PASSENGERS];
+   int inumPassengers = 0;
 
-int domestic(){
+int international(){
 system("cls");
     int choice;
     char cDisplayPassengers;
-    int lengthCity = sizeof(domesticCities)/sizeof(domesticCities[0]);
+    int lengthCountries = sizeof(internationalCountries)/sizeof(internationalCountries[0]);
             //display all passenger information for domestic flights
         printf("----Do you want to view all passenger information?----\n");
         printf("Y for yes\n");
@@ -38,30 +40,30 @@ system("cls");
             scanf(" %c", &cDisplayPassengers);  //for some reason getchar gave me an error and scanf works just fine 
             cDisplayPassengers = toupper(cDisplayPassengers);
             if (cDisplayPassengers == 'Y'){
-                displayAllPassengers(passengers, numPassengers);
+                displayAllPassengers(ipassengers, inumPassengers);
             }
     
         origin:
         while (1) {
             //choose origin country
-            //asuming that the origin country departure flight is always available for passengers(no limit)
+            //asuming that the origin country departure flight is always available for i(no limit)
             system("cls");
             originNoCls:
             printf("----Origin \nWhere from?----\n");
                 int j = 1;
-                for (int i = 0; i < lengthCity; i++){
-                    printf("%d. %s\n", j++, domesticCities[i].city);
+                for (int i = 0; i < lengthCountries; i++){
+                    printf("%d. %s\n", j++, internationalCountries[i].city);
                 }
                     //makes sure that the input is valid so that it doesn't loop 
                 if (scanf("%d", &choice) != 1) { 
-                    handleInvalidInput(lengthCity);
+                    handleInvalidInput(lengthCountries);
                     goto originNoCls;
                 };
                     //checks that the choice is within the menu
-                if (choice >= 1 && choice <= lengthCity) {
-                    strcpy(passengers[numPassengers].origin, domesticCities[choice-1].city);
+                if (choice >= 1 && choice <= lengthCountries) {
+                    strcpy(ipassengers[inumPassengers].origin, internationalCountries[choice-1].city);
                     system("cls");
-                    printf("==== You chose origin: %s ====\n", passengers[numPassengers].origin);
+                    printf("==== You chose origin: %s ====\n", ipassengers[inumPassengers].origin);
                     break;
                 } else {
                     system("cls");
@@ -74,21 +76,21 @@ system("cls");
             //choose destination country
             printf("----Destination \nWhere to?----\n");
                 int j = 1;
-                for (int i = 0; i < lengthCity; i++){
-                    printf("%d. %s\n", j++, domesticCities[i].city);
+                for (int i = 0; i < lengthCountries; i++){
+                    printf("%d. %s\n", j++, internationalCountries[i].city);
                 }
                 
                 if (scanf("%d", &choice) != 1) { 
-                    handleInvalidInput(lengthCity);
+                    handleInvalidInput(lengthCountries);
                     goto destination;
                 };
                     //checks that the number is within the menu and checks that the origin is not the same as destination
-                if (choice >= 1 && choice <= lengthCity) {
+                if (choice >= 1 && choice <= lengthCountries) {
 
-                    if(strcmp(passengers[numPassengers].origin, domesticCities[choice-1].city) != 0){
-                        strcpy(passengers[numPassengers].destination, domesticCities[choice-1].city);
+                    if(strcmp(ipassengers[inumPassengers].origin, internationalCountries[choice-1].city) != 0){
+                        strcpy(ipassengers[inumPassengers].destination, internationalCountries[choice-1].city);
                         system("cls");
-                        printf("==== You chose destination : %s ====\n", passengers[numPassengers].destination);
+                        printf("==== You chose destination : %s ====\n", ipassengers[inumPassengers].destination);
                         break;
                     } else {
                         system("cls");
@@ -102,33 +104,33 @@ system("cls");
             };
         }
             //checkcs if there are seats available for destination only
-        for (int i = 0; i < sizeof(domesticCities) / sizeof(domesticCities[0]); i++) {
-            if (strcmp(passengers[numPassengers].destination, domesticCities[i].city) == 0 && domesticCities[i].passengers >= MAX_PASSENGERS) {
+        for (int i = 0; i < sizeof(internationalCountries) / sizeof(internationalCountries[0]); i++) {
+            if (strcmp(ipassengers[inumPassengers].destination, internationalCountries[i].city) == 0 && internationalCountries[i].passengers >= MAX_PASSENGERS) {
                 system("cls");
-                printf("Sorry, the flight to %s is fully booked please choose another destination\n", passengers[numPassengers].destination);
+                printf("Sorry, the flight to %s is fully booked please choose another destination\n", ipassengers[inumPassengers].destination);
                 goto destination;
             }
         }
             system("cls");
-            printf("There are seats available for the flight to %s\n", passengers[numPassengers].destination);
+            printf("There are seats available for the flight to %s\n", ipassengers[inumPassengers].destination);
             printf("please enter your details to contine\n");
 
             //Collects passenger information
                 //passes whole array to check for unique ID
 
-                createPassenger(passengers, numPassengers);
+                createPassenger(ipassengers, inumPassengers);
 
             //Prints reservation ticket information
 
-                displayPassenger(&passengers[numPassengers], numPassengers);
+                displayPassenger(&ipassengers[inumPassengers], inumPassengers);
 
             //increments arrays for the next passenger reservation so that data is not overwritten
-                for (int i = 0; i < (sizeof(domesticCities)/sizeof(domesticCities[0])); i++){
-                    if (strcmp(passengers[numPassengers].destination, domesticCities[i].city) == 0){
-                        domesticCities[i].passengers++;
+                for (int i = 0; i < (sizeof(internationalCountries)/sizeof(internationalCountries[0])); i++){
+                    if (strcmp(ipassengers[inumPassengers].destination, internationalCountries[i].city) == 0){
+                        internationalCountries[i].passengers++;
                     }
                 }
-                numPassengers++;
+                inumPassengers++;
 
             //confirmation for the passenger to view the ticket
             printf("Please press enter to confirm...\n");

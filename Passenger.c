@@ -37,8 +37,7 @@ void createPassenger(passengerData *passengers, int numPassengers) {
     //populates age
     passengers[numPassengers].age = age;
     //populates phone number
-    printf("Enter passenger phone number: ");
-    scanf("%s", passengers[numPassengers].phone);
+    getPassengerPhone(passengers[numPassengers].phone);
 
 }
 
