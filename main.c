@@ -45,12 +45,14 @@
 int main() {
     int choice;
     while (1) {
+        system("cls");
+        start:
         printf("Welcome to SAA\nLets Book a flight!\n");
         printf("\nWill your flight be\n1. Domestic\n2. International\n3. Exit\n");
             //had a problem with infinite looping when user eneters a non integer value
             if (scanf("%d", &choice) != 1) { 
                 handleInvalidInput(3);
-                continue;
+                goto start;
             };
             switch (choice) {
                 case 1:
@@ -63,7 +65,9 @@ int main() {
                 case 3:
                     exit(0);
                 default:
-                    printf("Invalid choice.\n");
+                    system("cls");
+                    printf("Invalid choice number, please try again...\n");
+                    goto start;
             };
 
         // printf("1. Add Passenger\n2. View Passengers\n3. Exit\nEnter choice: ");
