@@ -14,12 +14,12 @@
 
 flightData domesticCities[] = {
     //simulated extra passengers for testing purposes
-    {"Cape Town", 1},
-    {"Durban", 2},
-    {"Johannesburg", 3},
-    {"Port Elizabeth", 0},
-    {"East London", 1},
-    {"George", 2}
+    {"Cape Town (CPT)", 1},
+    {"Durban (DUR)", 2},
+    {"Johannesburg (JNB)", 3},
+    {"George (GRJ)", 0},
+    {"East London (ELS)", 1},
+    {"Bloemfontein (BFN)", 2}
 };
 
 //Passenger information
