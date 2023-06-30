@@ -1,10 +1,20 @@
+/************* AUTHOR INFO **************/
+// Name: Shahied Rustin
+// Student No.: 230500226
+// Course Title: Software Design 1 (SDN150S)
+// Date: 30/06/2023
+/************* HEADER FILES ***************/
+
+/************* GLOBAL VARIABLES ************/
+
+/******** FUNCTIONS (DECLARE/DEFINE) *********/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include "Authentication.h"
 #include "FlightType.h"
-
+/************* MAIN FUNCTION**************/
 int main() {
     int choice;
     while (1) {

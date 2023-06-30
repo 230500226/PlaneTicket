@@ -1,11 +1,18 @@
+/************* AUTHOR INFO **************/
+// Name: Shahied Rustin
+// Student No.: 230500226
+// Course Title: Software Design 1 (SDN150S)
+// Date: 30/06/2023
+/************* HEADER FILES ***************/
 #include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
-// #include "Passenger.h"
+/************* GLOBAL VARIABLES ************/
 
+/******** FUNCTIONS (DECLARE/DEFINE) *********/
 // Function to handle invalid user input
 void handleInvalidInput(int options) {
     system("cls");

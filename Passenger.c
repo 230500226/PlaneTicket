@@ -1,9 +1,17 @@
+/************* AUTHOR INFO **************/
+// Name: Shahied Rustin
+// Student No.: 230500226
+// Course Title: Software Design 1 (SDN150S)
+// Date: 30/06/2023
+/************* HEADER FILES ***************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "passenger.h"
 #include "Authentication.h"
+/************* GLOBAL VARIABLES ************/
 
+/******** FUNCTIONS (DECLARE/DEFINE) *********/
 // Checks if there are multiple passengers with the same ID for a flight
 int checkID(char *id, passengerData *passengers, int size) {
     for (int i = 0; i < size; i++) {

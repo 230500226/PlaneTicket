@@ -1,3 +1,9 @@
+/************* AUTHOR INFO **************/
+// Name: Shahied Rustin
+// Student No.: 230500226
+// Course Title: Software Design 1 (SDN150S)
+// Date: 30/06/2023
+/************* HEADER FILES ***************/
 #include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,10 +12,10 @@
 #include "FlightType.h"
 #include "Authentication.h"
 #include "Passenger.h"
-
+/************* GLOBAL VARIABLES ************/
 #define MAX_PASSENGERS 3 // Maximum passengers allowed on the flight to the destination
                         // Yes, it's low but it's for test purposes and can easily be adjusted as needed 
-
+/******** FUNCTIONS (DECLARE/DEFINE) *********/
 // Flight information
 flightData domesticCities[] = {
     // Simulated extra passengers for testing purposes
@@ -24,7 +30,7 @@ flightData domesticCities[] = {
 // Passenger information
 passengerData passengers[MAX_PASSENGERS];
 int numPassengers = 0;
-
+/************* MAIN FUNCTION**************/
 int domestic() {
     system("cls");
     int choice;
