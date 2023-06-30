@@ -2,7 +2,7 @@
 // Name: Shahied Rustin
 // Student No.: 230500226
 // Course Title: Software Design 1 (SDN150S)
-// Date: 30/06/2023
+// Date: 02/07/2023
 /************* HEADER FILES ***************/
 #include <stdio.h>
 #include <stdio.h>
