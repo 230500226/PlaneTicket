@@ -16,7 +16,7 @@ int checkID(char *id, passengerData *passengers, int size) {
 
 // Function to create a new passenger record
 void createPassenger(passengerData *passengers, int numPassengers) {
-    printf("Enter passenger name: ");
+    printf("Enter passenger first name (no spaces): ");
     scanf("%s", passengers[numPassengers].name);
 
     char *id;
